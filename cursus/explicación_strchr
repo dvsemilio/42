@@ -1,0 +1,76 @@
+Este código define una función llamada our_strchr que busca la primera aparición de un carácter c en una cadena
+ str. La función devuelve un puntero al carácter en la cadena si lo encuentra, o devuelve NULL si no lo encuentra.
+
+Primero se declara una variable a como char y una variable i como int. Luego, se verifica si la cadena s 
+(debería ser str, ya que s no está declarado en el código) es NULL, en cuyo caso se devuelve NULL.
+
+Después, se asigna el valor de c a a, se inicializa i en 0, y se recorre la cadena str con un bucle while.
+ El bucle recorre la cadena hasta que encuentra un carácter nulo ('\0') o el carácter a.
+  Si encuentra el carácter a, devuelve un puntero al carácter en la cadena str que coincida con a. 
+  De lo contrario, devuelve NULL.
+
+En resumen, la función our_strchr es similar a la función strchr de la biblioteca estándar de C,
+ que también busca la primera aparición de un carácter en una cadena y 
+ devuelve un puntero al carácter en la cadena si se encuentra, o devuelve NULL si no lo encuentra.
+
+ En la función strrchr original de la librería estándar de C, el puntero de entrada s es un puntero constante a caracteres, es decir, const char *s. Esto significa que la función no modifica el contenido al que apunta el puntero s.
+
+Es importante que el puntero de entrada sea constante porque si se modifica el contenido al que apunta 
+el puntero str dentro de la función, esto podría tener consecuencias inesperadas en otras partes del programa
+ donde se usa ese mismo puntero, o incluso podría causar un error de compilación si se intenta modificar
+  una cadena literal.
+
+Por lo tanto, para evitar posibles errores y garantizar la seguridad del programa,
+ es buena práctica hacer que el puntero de entrada sea constante en la función strrchr.
+
+ En la función que se ha proporcionado, esta línea return ((char *)&s[i]);
+  devuelve un puntero a la posición de memoria del caracter que se está buscando.
+
+ La expresión &s[i] devuelve la dirección de memoria de la posición del caracter que se ha encontrado
+  en la cadena s, y el casting a (char *) convierte la dirección de memoria a un puntero a char. 
+  De esta manera, el puntero resultante puede ser utilizado para manipular el caracter encontrado.
+ 
+ Es importante tener en cuenta que en este caso el puntero es del tipo const char*,
+  ya que el puntero de entrada s es un puntero a una cadena de caracteres constante, 
+  es decir, no se permitirá modificar la cadena original en la función.
+
+  size_t es un tipo de datos en C que se utiliza para representar el tamaño de objetos en memoria.
+   El tipo size_t se define en la biblioteca estándar de C, 
+   y su tamaño depende de la arquitectura del sistema y del compilador que se esté utilizando.
+
+  En el contexto de la función strncmp, n es el número máximo de caracteres que se compararán entre las dos
+   cadenas. La función strncmp comparará los primeros n caracteres de las dos cadenas.
+    Si ambas cadenas son iguales hasta los primeros n caracteres, entonces la función devuelve 0.
+
+Visual Studio podría señalar NULL como un error si no se incluye la cabecera stddef.h, 
+ya que NULL está definido en esa cabecera. Es posible que el archivo de código fuente en el que se utiliza 
+NULL no tenga la directiva #include <stddef.h>, lo que hace que el compilador de Visual Studio no reconozca 
+la definición de NULL. Por lo tanto, incluir la cabecera stddef.h 
+al principio del archivo podría resolver el problema.
+
+explicame por favor este codigo de c return ((char *)(str + i));
+Este código en C utiliza un casting para convertir un puntero de tipo char * 
+que apunta a la posición de memoria de una cadena de caracteres (str),
+ sumado con un offset i, en un puntero de tipo char *.
+
+Básicamente, lo que hace esta línea de código es mover el puntero i posiciones
+ hacia adelante en la cadena de caracteres str y devolver ese nuevo puntero 
+ resultante como un puntero de tipo char *. Es decir, si str es un puntero a
+  la cadena "Hola Mundo", y i es 3, entonces la expresión str + i apuntará a 
+  la cuarta posición de la cadena, donde se encuentra el carácter 'a'.
+
+En resumen, esta línea de código permite obtener un puntero que apunta a 
+una posición específica de una cadena de caracteres, sumando un offset a 
+un puntero existente.
+
+que es un offset?
+En programación, un offset se refiere a la cantidad de bytes entre el inicio 
+de un bloque de memoria y una ubicación específica dentro de ese bloque. 
+Se utiliza a menudo para calcular direcciones de memoria y acceder a datos 
+en estructuras de datos.
+
+Por ejemplo, si tienes un array de enteros y quieres acceder al tercer elemento,
+ necesitas un offset de dos elementos para llegar a la dirección de memoria
+  correcta en la que se encuentra el tercer elemento. Esencialmente, 
+  el offset es la distancia en bytes desde el inicio del array hasta la posición
+   del elemento deseado.

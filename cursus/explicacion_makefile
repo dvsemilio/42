@@ -1,0 +1,29 @@
+explicame que es esto dentro de un makefile por favor (NAME): $(OJBS) $(LIBFTPATH) 
+Dentro de un Makefile, la línea que mencionas:
+
+$(NAME): $(OBJS) $(LIBFTPATH)
+define una regla de compilación llamada $(NAME) que depende de los objetivos $(OBJS) y $(LIBFTPATH).
+
+El objetivo $(NAME) generalmente se usa para nombrar el archivo ejecutable que se generará después de compilar el código fuente. Por ejemplo, si $(NAME) está definido como my_program, entonces después de compilar y enlazar el código fuente, se generará un archivo ejecutable llamado my_program.
+
+El $(OBJS) se refiere a los archivos objeto generados después de compilar los archivos fuente. Por lo general, cada archivo fuente se compila por separado en un archivo objeto. En la regla $(NAME), se hace referencia a estos archivos objeto y se les indica que son necesarios para generar el archivo ejecutable final.
+
+$(LIBFTPATH) se refiere a cualquier archivo de biblioteca (library) necesaria para enlazar (link) el código objeto y crear el archivo ejecutable final.
+
+En resumen, la regla $(NAME) indica cómo se debe generar el archivo ejecutable final utilizando los archivos objeto generados previamente y cualquier biblioteca necesaria.
+
+por que se escribe entre paréntesis y con $?
+En el contexto de un Makefile, $(?) es una variable automática que se utiliza para representar la lista de dependencias que son más recientes que el objetivo. Los paréntesis se utilizan para indicar que se está utilizando una variable.
+
+En este caso, $(?) se utiliza para especificar las dependencias que son más recientes que el objetivo $(NAME) y se deben compilar antes de crear el objetivo $(NAME). Además, $(LIBFTPATH) se utiliza para especificar la ruta de la biblioteca libft. En resumen, esta línea de Makefile indica que el objetivo $(NAME) depende de los objetos $(OBJS) y de la biblioteca libft, y que se deben compilar antes de crear el objetivo $(NAME).
+
+es muy complicado, me lo puedes explicar como si fuera tonto?
+¡Claro! Lo que significa esa línea dentro de un Makefile es lo siguiente:
+
+Está definiendo una regla para crear un archivo ejecutable llamado NAME.
+La regla depende de dos cosas:
+a. Los archivos objeto (.o) que se necesitan para crear el ejecutable. Esos archivos objeto están definidos en la variable OBJS.
+b. Un archivo de biblioteca (.a) que se encuentra en la ruta $(LIBFTPATH) (que probablemente sea una ruta definida en una variable también).
+Cuando se ejecuta esta regla (por ejemplo, al ejecutar el comando make NAME), primero se comprueba si los archivos objeto y el archivo de biblioteca son más nuevos que el archivo ejecutable. Si cualquiera de ellos es más nuevo, se ejecutarán las reglas correspondientes para actualizarlos.
+Si los archivos objeto y el archivo de biblioteca ya existen y son más antiguos que el archivo ejecutable, se ejecutará la regla para crear el archivo ejecutable.
+Espero que esto te haya ayudado a entender mejor lo que hace la línea en el Makefile. Si tienes más preguntas, no dudes en preguntar.
