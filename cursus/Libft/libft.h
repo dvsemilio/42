@@ -6,13 +6,19 @@
 /*   By: ebachill <ebachill@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:14:11 by ebachill          #+#    #+#             */
-/*   Updated: 2023/04/28 17:53:49 by ebachill         ###   ########.fr       */
+/*   Updated: 2023/04/29 11:38:51 by ebachill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 int				ft_isalpha(int n);
 int				ft_isdigit(int n);
@@ -46,5 +52,23 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
 
 #endif
+
+/*El código que te han dado es una definición de una estructura de datos 
+llamada `t_list` que se utiliza comúnmente en la programación en C para 
+crear listas enlazadas. Una lista enlazada es una estructura de datos 
+que consta de una serie de nodos que contienen información y un enlace 
+a otro nodo. La estructura de la lista tiene dos campos: un puntero a 
+algún tipo de dato llamado `content`, y un puntero a la 
+siguiente estructura `t_list` llamado `next`. 
+La definición de `t_list` es necesaria si quieres 
+utilizar listas en tu programa. Al incluirla en tu librería, 
+puedes utilizarla para definir tus propias listas enlazadas y 
+crear funciones que operen en ellas.
+Los miembros de la estructurat_list son:
+content: la información contenida por el nodo.
+void *: permite guardar cualquier tipo de información.
+next: la dirección del siguiente nodo, o NULLsi el siguiente nodo es el último.*/

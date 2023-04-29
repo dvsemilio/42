@@ -45,6 +45,8 @@ ft_strmapi.o\
 ft_striteri.o\
 ft_putchar_fd.o\
 ft_putstr_fd.o\
+ft_putendl_fd.o\
+ft_putnbr_fd.o\
 
 $(NAME):$(OBJECTS)
 	@ar rsc $(NAME) $(OBJECTS)
@@ -144,6 +146,12 @@ ft_putchar_fd.o : ft_putchar_fd.c libft.h
 
 ft_putstr_fd.o : ft_putstr_fd.c libft.h
 	@$(CC) -c $(FLAGS) ft_putstr_fd.c -o ft_putstr_fd.o
+
+ft_putendl_fd.o : ft_putendl_fd.c libft.h
+	@$(CC) -c $(FLAGS) ft_putendl_fd.c -o ft_putendl_fd.o
+
+ft_putnbr_fd.o : ft_putnbr_fd.c libft.h
+	@$(CC) -c $(FLAGS) ft_putnbr_fd.c -o ft_putnbr_fd.o
 
 all : $(NAME)
 
